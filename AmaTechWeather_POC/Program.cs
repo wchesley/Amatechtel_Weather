@@ -29,7 +29,7 @@ namespace AmaTechWeather_POC
                     var json_data = client.DownloadString(ApiAddr);
                     if (json_data != null)
                     {
-                        JsonResponse.RootObject token = JsonConvert.DeserializeObject<JsonResponse.RootObject>(json_data);
+                        RootObject token = JsonConvert.DeserializeObject<RootObject>(json_data);
                         var temperature = token.current_observation.temperature_string;
                         var wind = token.current_observation.wind_string;
                         var rain = token.current_observation.precip_today_string;

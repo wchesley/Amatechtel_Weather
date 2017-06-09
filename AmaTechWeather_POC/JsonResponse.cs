@@ -12,8 +12,7 @@ namespace AmaTechWeather_POC
     //Written by: Walker Chesley
     //Date: 06/07/2017
 
-    public class JsonResponse
-    {
+    
        
         public class Features
         {
@@ -131,5 +130,5 @@ namespace AmaTechWeather_POC
             public Response response { get; set; }
             public CurrentObservation current_observation { get; set; }
         }
-    }
+    
 }
