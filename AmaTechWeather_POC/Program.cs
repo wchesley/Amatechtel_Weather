@@ -14,12 +14,8 @@ namespace AmaTechWeather_POC
     
     class Program
     {
-        
-
         static void Main(string[] args)
         {
-
-
             string ApiAddr = "http://api.wunderground.com/api/047d1a51849f71a0/conditions/q/TX/Amarillo.json";
 
             using (var client = new WebClient())
@@ -29,13 +25,13 @@ namespace AmaTechWeather_POC
                     var json_data = client.DownloadString(ApiAddr);
                     if (json_data != null)
                     {
-                        RootObject token = JsonConvert.DeserializeObject<RootObject>(json_data);
-                        var temperature = token.current_observation.temperature_string;
-                        var wind = token.current_observation.wind_string;
-                        var rain = token.current_observation.precip_today_string;
-                        var heat_Index = token.current_observation.heat_index_string;
-                        var weather = token.current_observation.weather; 
-                        Console.WriteLine($"Temperature: {temperature}\nWind: {wind}\nRain: {rain}\nHeat Index: {heat_Index}\nFeels Like: {weather}");
+                        RootObject response = JsonConvert.DeserializeObject<RootObject>(json_data);
+                        var temperature = response.current_observation.temperature_string;
+                        var wind = response.current_observation.wind_string;
+                        var rain = response.current_observation.precip_today_string;
+                        var heat_Index = response.current_observation.heat_index_string;
+                        var weather = response.current_observation.weather; 
+                        Console.WriteLine($"Temperature: {temperature}\nWind: {wind}\nRain: {rain}\nLooks Like: {weather}");
                         Console.ReadKey();
                     }
                     else
@@ -49,9 +45,6 @@ namespace AmaTechWeather_POC
                     Console.WriteLine(e.ToString());
                 }
             }
-
-
-
         }
     }
 }
