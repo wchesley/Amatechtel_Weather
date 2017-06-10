@@ -12,7 +12,8 @@ using System.Web;
 using System.Web.Script.Serialization; 
 
 
-// testing github commit
+// Written By: Walker Chesley
+// Date: 06/10/2017
 
 
 namespace AmaTechWeather_POC
@@ -36,16 +37,11 @@ namespace AmaTechWeather_POC
                     {
                         Console.WriteLine(json_data);
                     }
-                    
-                    var response = JsonConvert.DeserializeObject<CurrentObservation>(json_data);
-
-                    
-                        var my_weather = response.weather;
-                        var temperature = response.temperature_string;
-                        Console.WriteLine("Current Weather: {0}", my_weather);
-                        Console.WriteLine("Current Temp: {0}", temperature);
-                    
-                    
+                    var myObject = new RootObject();
+                    JsonConvert.PopulateObject(json_data, myObject);
+                    string weather = myObject.current_observation.temp_f.ToString();
+                    Console.WriteLine("Temp: {0}", weather);
+   
                 }
                 catch(Exception e)
                 {

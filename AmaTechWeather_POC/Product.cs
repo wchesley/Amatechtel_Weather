@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace AmaTechWeather_POC
 {
+
     
-
-
 
         public class Features
         {
@@ -76,8 +75,8 @@ namespace AmaTechWeather_POC
             public string local_tz_short { get; set; }
             public string local_tz_long { get; set; }
             public string local_tz_offset { get; set; }
-            public string weather { get; set; }
-            public string temperature_string { get; set; }
+            public static string weather { get; set; }
+            public static string temperature_string { get; set; }
             public double temp_f { get; set; }
             public double temp_c { get; set; }
             public string relative_humidity { get; set; }
